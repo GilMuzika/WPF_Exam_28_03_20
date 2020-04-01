@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="WPF_Exam_28_03_20.Part_1CombinedElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Exam_28_03_20"
+             mc:Ignorable="d" 
+             >
+    <UserControl.Resources>
+        <local:DoubleToStringConverter x:Key="DoubleToStringConverter"/>
+        <local:DoubleToQuartersConverter x:Key="DoubleToQuartersConverter"/>
+    </UserControl.Resources>
+    <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Left">
+        <Label Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Left">Width</Label>
+        <Slider  x:Name="sldSlider" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="20"  Height="20" MinWidth="350"/>
+        <Label Margin="5" Width="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="{Binding ElementName=sldSlider, Path=Value, Converter={StaticResource DoubleToStringConverter}}"></Label>
+        <Label x:Name="lblButtonSize" Margin="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"></Label>
+    </StackPanel>
+</UserControl>

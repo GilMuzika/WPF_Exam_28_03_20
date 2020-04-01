@@ -1,0 +1,28 @@
+﻿<Application x:Class="WPF_Exam_28_03_20.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPF_Exam_28_03_20"
+             StartupUri="MainWindow.xaml" ShutdownMode="OnMainWindowClose">
+    <Application.Resources>
+        <Style TargetType="local:Part_2">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="BackgroundDependency" Value="LightGreen"></Setter>
+                </Trigger>
+                <Trigger Property="Validation.HasError" Value="false">
+                    <Setter Property="BackgroundDependency" Value="Pink"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="local:Part_3">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="IsButtonEnabledDependency" Value="False"></Setter>
+                </Trigger>
+                <Trigger Property="Validation.HasError" Value="false">
+                    <Setter Property="IsButtonEnabledDependency" Value="True"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Application.Resources>
+</Application>

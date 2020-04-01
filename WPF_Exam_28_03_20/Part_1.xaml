@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="WPF_Exam_28_03_20.Part_1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Exam_28_03_20"
+             mc:Ignorable="d" x:Name="myself"             
+             >
+    <UserControl.Resources>
+        <local:ViewModelPart_1 x:Key="ViewModelPart_1"/>
+    </UserControl.Resources>
+    
+    <StackPanel>
+        <TextBlock x:Name="tblTitle" FontSize="12" FontWeight="Bold" Margin="10, 0"></TextBlock>
+
+        <StackPanel  Width="600">
+            <StackPanel Orientation="Horizontal" Margin="10" Width="{Binding ElementName=myself, Path=Width}">
+                <TextBlock Margin="0,5,5,5">Text:</TextBlock>
+                <TextBox x:Name="txt1" Margin="5" Text="{Binding Text, Source={StaticResource ViewModelPart_1}}"></TextBox>
+            </StackPanel>
+            <local:Part_1CombinedElement x:Name="ce1" HorizontalAlignment="Center" Margin="10,0" SliderMin="80" SliderMax="200" SliderValueDependency="{Binding Width, Source={StaticResource ViewModelPart_1}, Mode=TwoWay}"  Width="{Binding ElementName=myself, Path=Width}"/>
+            <local:Part_1CombinedElement x:Name="ce2" HorizontalAlignment="Center" Margin="10,0" SliderMin="20" SliderMax="100" SliderValueDependency="{Binding Height, Source={StaticResource ViewModelPart_1}, Mode=TwoWay}"  Width="{Binding ElementName=myself, Path=Width}"/>
+            <Button Content="{Binding ElementName=txt1, Path=Text}" Margin="10" HorizontalAlignment="Left"
+                    Width="{Binding ElementName=ce1, Path=SliderValueDependency}" Height="{Binding ElementName=ce2, Path=SliderValueDependency}"
+                    Command="{Binding MyCommand, Source={StaticResource ViewModelPart_1}}"
+                    />
+        </StackPanel>
+
+
+
+    </StackPanel>
+</UserControl>
